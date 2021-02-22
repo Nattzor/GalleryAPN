@@ -1,3 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap');
 body {
-    background-color: navy;
+    text-align: center;
+    font-family: 'Baskerville';
+    font-style: oblique;
+}
+nav {
+    margin: 3rem 0rem;
+    font-size: 35px;
+    position: sticky;
+    border-bottom: solid 1px grey;
+}
+section {
+    margin: 3rem;
+}
+footer {
+    text-decoration: none;
+    border-top: 1px solid grey;
+    padding: 1rem;
+}
+
+.round {
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    border: none;
+    margin: 0.75rem;
 }

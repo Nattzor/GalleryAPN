@@ -1,16 +1,15 @@
 import '../scss/main.scss'
-// Create a class property without a constructor
-class Game {
-    name = 'Violin Charades'
-  }
-  const myGame = new Game()
-  // Create paragraph node
-  const p = document.createElement('p')
-  p.textContent = `I like ${myGame.name}.`
-// Create heading node
-const heading = document.createElement('h1')
-heading.textContent = 'Interesting!'
+// Import JS modules
+import * as template from './templates';
+import { handleFormSubmit } from './otherStuff';
 
+const onloadHtml = `
+  ${template.navTemplate('Gallery')}
+  ${template.searchFormTemplate()}
+  ${template.footerTemplate('https://github.com/Nattzor/GalleryAPN')}
+`;
 // Append heading node to the DOM
-const app = document.querySelector('#root')
-app.append(heading)
+const app = document.querySelector('#root');
+app.innerHTML = onloadHtml;
+
+document.querySelector('#search_form').addEventListener('submit', handleFormSubmit);
