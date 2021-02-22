@@ -14,7 +14,8 @@ module.exports = {
     port: 8080,
   },
   entry: {
-    main: ['@babel/polyfill', path.resolve(__dirname, './src/javascript/index.js')],
+    //main: ['@babel/polyfill', path.resolve(__dirname, './src/javascript/index.js')],
+    main: path.resolve(__dirname, './src/javascript/index.js'),
   },
   output: {
     path: path.resolve(__dirname, './dist'),

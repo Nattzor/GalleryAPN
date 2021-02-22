@@ -1,11 +1,23 @@
-import { createApi } from 'unsplash-js';
+import { createApi } from 'unsplash-js'; 
 
-export const handleFormSubmit = event => {
+export async function handleFormSubmit (event) {
     event.preventDefault();
-    fetchImages();
+    const keyword = this.search.value;
+    // Save search to LocalStorage
+    saveSearchToLocalStorage(keyword);
+    // Fetch Images
+    // const photos = await fetchImages(keyword);
+    // console.log(photos);
 }
 
-export const fetchImages = async (keyword = 'cat', page = 1) => {
+function saveSearchToLocalStorage(searchTerm) {
+    let savedSearchesArray = JSON.parse(window.localStorage.getItem('savedSearches'));
+    savedSearchesArray ? savedSearchesArray.push(searchTerm) : savedSearchesArray = [searchTerm];
+    window.localStorage.setItem('savedSearches', JSON.stringify(savedSearchesArray));
+}
+
+
+const fetchImages = async (keyword = 'cats', page = 1) => {
     const accessKey = 'lyEw-RLUmA-7SQhKVJWXnDZTmzPrB1M9eCD53vZV2IY';
     const api = createApi({
         // Don't forget to set your access token here!
@@ -13,9 +25,11 @@ export const fetchImages = async (keyword = 'cat', page = 1) => {
         accessKey: accessKey
     });
 
-    const photos = await api.search.getPhotos({ 
+    const data = await api.search.getPhotos({ 
         query: keyword, orientation: "landscape", page: page 
     }).catch(err => console.error(err));
-
-    console.log(photos.response);
+    
+    const totalPages = data.response.total_pages;
+    const photos = data.response.results;
+    return photos;
 }
