@@ -1,0 +1,25 @@
+{
+  "name": "GalleryAPN",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint '**/*.js'",
+    "lint-watch": "nodemon --exec 'npm run lint --silent'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nattzor/GalleryAPN.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nattzor/GalleryAPN/issues"
+  },
+  "homepage": "https://github.com/Nattzor/GalleryAPN#readme",
+  "devDependencies": {
+    "eslint-config-salt": "^1.1.0"
+  }
+}
