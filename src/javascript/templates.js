@@ -12,20 +12,31 @@ export function footerTemplate(link) {
 
 export function searchFormTemplate() {
     return `
-    <section><form id="search_form">
-        <input type="text" name="search"></input>
-        <button type="submit">Get images</button>
-    </form></section>
-    `;
-}
-
-export function buttonTemplate() {
-    return `
     <section>
-        <button class="round">Prev</button>
-        <button class="round">Next</button>
+        <form id="search_form">
+            <input type="text" name="search"></input>
+            <button type="submit">Get images</button>
+        </form>
+        <div class="search-results">
+        </div>
+        <div class="hidden" id="prevNextBtns">
+            <button class="round" id="prevBtn">Prev</button>
+            <button class="round" id="nextBtn">Next</button>
+        </div>
     </section>
     `;
 }
 
-
+export function imgCardTemplate(imgObject) {
+    return `
+    <div class="flip-card">
+    <div class="flip-card-inner">
+      <div class="flip-card-front">
+        <img src="${imgObject.imageUrl}" alt="${imgObject.altDesc}" style="width:300px;height:300px;">
+      </div>
+      <div class="flip-card-back">
+        <p>${imgObject.desc || imgObject.altDesc}</p>
+      </div>
+    </div>
+  </div>`;
+}
