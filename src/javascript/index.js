@@ -1,9 +1,4 @@
-import '../scss/main.scss'
-// Create a class property without a constructor
-class Game {
-  name = 'Violin Charades'
-
-  
+import '../scss/main.scss';
 // Import JS modules
 import * as template from './templates';
 import { saveSearchToLocalStorage, fetchImages } from './otherStuff';
