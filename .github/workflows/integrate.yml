@@ -1,0 +1,24 @@
+name: Merging to main
+
+on:
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  run_audit_and_e2e:
+    runs on: ubuntu-latest
+  
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
+
+      - name: Run Audit
+        run: npm run audit
+
+      #- name: Run e2e Tests
+      #  run: npm run e2e
